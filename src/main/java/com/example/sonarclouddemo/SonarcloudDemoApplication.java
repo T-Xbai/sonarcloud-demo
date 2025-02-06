@@ -14,12 +14,16 @@ public class SonarcloudDemoApplication {
 
     @GetMapping("/api")
     public String demo(@RequestParam Boolean res){
-
+        String mes = "";
         if (res){
-            return demo1();
+           mes= mes.concat( demo1());
         }else {
-            return demo2();
+            mes= String.valueOf(res) ;
         }
+        if (mes.equals(String.valueOf(false))){
+            mes = "hello word :".concat(mes);
+        }
+        return mes;
     }
 
     public String demo1(){
