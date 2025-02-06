@@ -13,17 +13,26 @@ import org.springframework.web.bind.annotation.RestController;
 public class SonarcloudDemoApplication {
 
     @GetMapping("/api")
-    public boolean demo(@RequestParam Boolean res){
-
+    public String demo(@RequestParam Boolean res){
+        String mes = "";
         if (res){
-            return true;
+           mes= mes.concat( demo1());
+        }else {
+            mes= String.valueOf(res) ;
         }
-        if (res){
-            return false;
+        if (mes.equals(String.valueOf(false))){
+            mes = "hello word :".concat(mes);
         }
-        return true;
+        return mes;
     }
 
+    public String demo1(){
+        return "demo1";
+    }
+
+    public String demo2(){
+        return "demo2";
+    }
     public static void main(String[] args) {
         SpringApplication.run(SonarcloudDemoApplication.class, args);
     }
